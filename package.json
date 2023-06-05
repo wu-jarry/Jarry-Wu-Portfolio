@@ -1,0 +1,19 @@
+{
+  "name": "website-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@studio-freight/lenis": "^1.0.14",
+    "events": "^3.3.0",
+    "gsap": "^3.11.5",
+    "lil-gui": "^0.18.1",
+    "three": "^0.152.2",
+    "vite": "^4.3.2"
+  }
+}
