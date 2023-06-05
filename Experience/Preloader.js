@@ -31,7 +31,7 @@ export default class Sizes extends EventEmitter{
         convert(document.querySelector(".intro-text"))
         convert(document.querySelector(".hero-main-title"))
         convert(document.querySelector(".hero-main-decription"))
-        convert(document.querySelector(".first-sub"))
+        convert(document.querySelector(".hero-second-subheading"))
         convert(document.querySelector(".second-sub"))
         this.room = this.experience.world.room.actualRoom;
         // pulling in the this.roomChildren[child.name] = child object provided in Room.js 
@@ -286,8 +286,8 @@ export default class Sizes extends EventEmitter{
     }
 
     scale(){
-        this.roomChildren.rectLight.width = 0;
-        this.roomChildren.rectLight.height = 0;
+        this.roomChildren.rectLight.width = 0.33;
+        this.roomChildren.rectLight.height = 0.75;
         if(this.device === "desktop"){
             this.room.scale.set(0.11, 0.11, 0.11);
         }

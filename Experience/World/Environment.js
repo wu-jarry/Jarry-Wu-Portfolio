@@ -21,20 +21,20 @@ export default class Environemnt{
         // this.setGUI();
     }
 
-    // setGUI(){
-    //     // use onChange lil-gui method to update theme colour with lil-gui
-    //     this.gui.addColor(this.obj, "colorObj").onChange(() => {
-    //         // set sunlight and ambient light colors to the colour selected with lil-gui
-    //         this.sunLight.color.copy(this.obj.colorObj)
-    //         this.ambientLight.color.copy(this.obj.colorObj)
-    //         console.log(this.obj.colorObj);
-    //     });
-    //     this.gui.add(this.obj, "intensity", 0, 10).onChange(() => {
-    //         // set the sinlight and ambient light light intensity
-    //         this.sunLight.intensity = this.obj.intensity
-    //         this.ambientLight.intensity = this.obj.intensity
-    //     })
-    // }
+    setGUI(){
+        // use onChange lil-gui method to update theme colour with lil-gui
+        this.gui.addColor(this.obj, "colorObj").onChange(() => {
+            // set sunlight and ambient light colors to the colour selected with lil-gui
+            this.sunLight.color.copy(this.obj.colorObj)
+            this.ambientLight.color.copy(this.obj.colorObj)
+            console.log(this.obj.colorObj);
+        });
+        this.gui.add(this.obj, "intensity", 0, 10).onChange(() => {
+            // set the sinlight and ambient light light intensity
+            this.sunLight.intensity = this.obj.intensity
+            this.ambientLight.intensity = this.obj.intensity
+        })
+    }
 
     setSunLight(){
         // creating a new sunlight and setting the colour and intensity

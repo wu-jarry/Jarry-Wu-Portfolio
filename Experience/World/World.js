@@ -3,7 +3,6 @@ import Experience from "../Experience.js";
 
 import Room from "./Room.js";
 import Floor from "./Floor.js";
-import Controls from "./Controls.js";
 import Environment from "./Environment.js";
 import {EventEmitter} from "events";
 
@@ -25,7 +24,6 @@ export default class World extends EventEmitter{
             // floor must come before room or there will be an error saying circles are undefined
             this.floor = new Floor();
             this.room = new Room();
-            // this.controls = new Controls();
             // once everything is instantiated emit "worldready"
             this.emit("worldready");
         });

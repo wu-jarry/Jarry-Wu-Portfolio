@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import Experience from "../Experience.js";
 import GSAP from "gsap";
-import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js";
 
 export default class Room{
     constructor(){
@@ -94,8 +93,8 @@ export default class Room{
 
     setLights(){
         // set light characteristics
-        this.width = 0.33;
-        this.height = 0.75;
+        this.width = 0;
+        this.height = 0;
         this.intensity = 3;
         // create a new light for the fish tank and apply characteristics
         this.rectLight = new THREE.RectAreaLight( 0xffffff, this.intensity, this.width, this.height );
@@ -125,7 +124,7 @@ export default class Room{
 
         this.roomChildren["spotLight"] = this.spotLight;
 
-        // const spotLightHelper = new THREE.SpotLightHelper( this.spotLight );
+        // const spotLightHelper = new THREE.SpotLightHelper( this spotLight );
         // this.actualRoom.add( spotLightHelper );
     }
 

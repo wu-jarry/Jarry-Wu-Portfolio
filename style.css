@@ -12,7 +12,7 @@ html, body{
 }
 
 h1, section, p, span, svg{
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* establish some variables for coloring*/
@@ -156,7 +156,7 @@ h1, section, p, span, svg{
 
 .arrow-svg-wrapper{
   position: absolute;
-  top: 95%;
+  top: 90%;
   left: 50%;
   opacity: 0;
   color: var(--color-text);

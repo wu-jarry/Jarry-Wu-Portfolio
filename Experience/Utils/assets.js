@@ -6,7 +6,7 @@ export default [
         // giving it an object type
         type: "glbModel",
         // providing a path for the loader to find the model
-        path: "/models/website version 5.glb",
+        path: "/models/website final version.glb",
     },
 
     {
