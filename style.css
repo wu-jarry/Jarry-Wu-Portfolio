@@ -11,6 +11,11 @@ html, body{
   font-family: "Montserrat", sans-serif;
 }
 
+body{
+  /* position: fixed; */
+  overflow: hidden;
+}
+
 h1, section, p, span, svg{
   transition: background-color 0.3s, color 0.3s;
 }

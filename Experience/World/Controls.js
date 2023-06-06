@@ -376,7 +376,7 @@ export default class Room{
 
             // Circle & room animations -------------------------------------------
             // First section -------------------------------------------
-            this.firstMoveTimeline = new GSAP.timeline({
+            this.firstCircle = new GSAP.timeline({
                 scrollTrigger: {
                     // select which html section will act as a trigger for the scoll animation
                     trigger: ".first-move",
@@ -386,8 +386,6 @@ export default class Room{
                     end: "bottom bottom",
                     // plays animation as cursor scrolls instead of instantly and determines how long it takes animation to catch up to scroll
                     scrub: 0.6,
-                    // provide responsive sizing by updating the functional value (x) everytime a refresh occurs
-                    invalidateOnRefresh: true,
                 },
             })
                 .to(this.circleFirst.scale, {
@@ -397,7 +395,7 @@ export default class Room{
                 })
 
             // Second section -------------------------------------------
-            this.secondMoveTimeline = new GSAP.timeline({
+            this.secondCircle = new GSAP.timeline({
                 scrollTrigger: {
                     // select which html section will act as a trigger for the scoll animation
                     trigger: ".second-move",
@@ -407,8 +405,6 @@ export default class Room{
                     end: "bottom bottom",
                     // plays animation as cursor scrolls instead of instantly and determines how long it takes animation to catch up to scroll
                     scrub: 0.6,
-                    // provide responsive sizing by updating the functional value (x) everytime a refresh occurs
-                    invalidateOnRefresh: true,
                 },
             })
                 .to(this.circleSecond.scale, {
@@ -426,7 +422,8 @@ export default class Room{
                 )
 
             // Third section -------------------------------------------
-            this.thirdMoveTimeline = new GSAP.timeline({
+            this.playThirdAnimation = false;
+            this.thirdCircle = new GSAP.timeline({
                 scrollTrigger: {
                     // select which html section will act as a trigger for the scoll animation
                     trigger: ".third-move",
@@ -436,8 +433,9 @@ export default class Room{
                     end: "bottom bottom",
                     // plays animation as cursor scrolls instead of instantly and determines how long it takes animation to catch up to scroll
                     scrub: 0.6,
-                    // provide responsive sizing by updating the functional value (x) everytime a refresh occurs
-                    invalidateOnRefresh: true,
+                    onEnter: () => {
+                        this.playThirdAnimation = true;
+                    }
                 },
             })
                 .to(this.circleThird.scale, {
@@ -453,7 +451,6 @@ export default class Room{
                     trigger: ".third-move",
                     // select where the marker and start point will be
                     start: "center center",
-                    // select where the marker and end point will be
                 },
             });
 
@@ -532,14 +529,14 @@ export default class Room{
                     });
                 }
             });
-            this.secondPartTimeline.add(this.first)
-            this.secondPartTimeline.add(this.second)
-            this.secondPartTimeline.add(this.third)
-            this.secondPartTimeline.add(this.fourth, "-=0.0.2")
-            this.secondPartTimeline.add(this.fifth, "-=0.0.2")
-            this.secondPartTimeline.add(this.sixth, "-=0.0.2")
-            this.secondPartTimeline.add(this.seventh)
-            this.secondPartTimeline.add(this.eighth, "-=0.1")
+        this.secondPartTimeline.add(this.first)
+        this.secondPartTimeline.add(this.second)
+        this.secondPartTimeline.add(this.third)
+        this.secondPartTimeline.add(this.fourth, "-=0.0.2")
+        this.secondPartTimeline.add(this.fifth, "-=0.0.2")
+        this.secondPartTimeline.add(this.sixth, "-=0.0.2")
+        this.secondPartTimeline.add(this.seventh)
+        this.secondPartTimeline.add(this.eighth, "-=0.1")
         });
     }
 
