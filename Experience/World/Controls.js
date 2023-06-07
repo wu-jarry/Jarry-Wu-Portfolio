@@ -32,6 +32,7 @@ export default class Room{
         GSAP.registerPlugin(ScrollTrigger);
 
         document.querySelector(".page").style.position = "relative"
+        document.querySelector("body").style.overflow = "visible"
 
         this.setScrollTrigger();
     }

@@ -15,6 +15,6 @@ export default [
         // giving it an object type
         type: "videoTexture",
         // providing a path for the loader to find the mp4
-        path: "/textures/kda.mp4",
+        path: "/textures/Spider-Man.mp4",
     }
 ];
