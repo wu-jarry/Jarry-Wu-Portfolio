@@ -16,8 +16,16 @@ body{
   overflow: hidden;
 }
 
-h1, section, p, span, svg{
+h1, section, p, a, span, svg{
   transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color:var(--color-text);
+}
+
+a:hover{
+  color: var(--color-darkblue-light);
 }
 
 /* establish some variables for coloring*/
