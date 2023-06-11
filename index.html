@@ -1,198 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body class="light-theme">
-    <!-- create a div with class name experience -->
-    <div class="experience">
-      <!-- create a canvas element inside div with class name experience-canvas -->
-      <canvas class="experience-canvas"></canvas>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+
+</head>
+
+<body class="light-theme">
+  <!-- create a div with class name experience -->
+  <div class="experience">
+    <!-- create a canvas element inside div with class name experience-canvas -->
+    <canvas class="experience-canvas"></canvas>
+  </div>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader-wrapper">
+      <div class="loading">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
     </div>
-    
-    <!-- Preloader -->
-    <div class="preloader">
-      <div class="preloader-wrapper">
-        <div class="loading">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div>
+  </div>
+
+  <div class="div">Original Idea: Bokoko33</div>
+
+  <!-- implement smooth scrolling by wrapping "page" allowing it to remain static while "page-wrapper" moves making it look like it's scrolling -->
+  <div class="page">
+
+    <div class="toggle-bar">
+      <div class="sun-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+          <path fill="currentColor"
+            d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM80-440q-17 0-28.5-11.5T40-480q0-17 11.5-28.5T80-520h80q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440H80Zm720 0q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520h80q17 0 28.5 11.5T920-480q0 17-11.5 28.5T880-440h-80ZM480-760q-17 0-28.5-11.5T440-800v-80q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v80q0 17-11.5 28.5T480-760Zm0 720q-17 0-28.5-11.5T440-80v-80q0-17 11.5-28.5T480-200q17 0 28.5 11.5T520-160v80q0 17-11.5 28.5T480-40ZM226-678l-43-42q-12-11-11.5-28t11.5-29q12-12 29-12t28 12l42 43q11 12 11 28t-11 28q-11 12-27.5 11.5T226-678Zm494 495-42-43q-11-12-11-28.5t11-27.5q11-12 27.5-11.5T734-282l43 42q12 11 11.5 28T777-183q-12 12-29 12t-28-12Zm-42-495q-12-11-11.5-27.5T678-734l42-43q11-12 28-11.5t29 11.5q12 12 12 29t-12 28l-43 42q-12 11-28 11t-28-11ZM183-183q-12-12-12-29t12-28l43-42q12-11 28.5-11t27.5 11q12 11 11.5 27.5T282-226l-42 43q-11 12-28 11.5T183-183Zm297-297Z" />
+        </svg>
+      </div>
+      <button class="toggle-button">
+        <div class="toggle-circle"></div>
+      </button>
+      <div class="moon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+          <path fill="currentColor"
+            d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z" />
+        </svg>
       </div>
     </div>
 
-    <div class="div">Original Idea: Bokoko33</div>
+    <div class="page-wrapper" lenis-smooth>
 
-    <!-- implement smooth scrolling by wrapping "page" allowing it to remain static while "page-wrapper" moves making it look like it's scrolling -->
-    <div class="page">
+      <section class="hero">
+        <div class="hero-wrapper">
 
-      <div class="toggle-bar">
-        <div class="sun-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path fill = "currentColor" d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM80-440q-17 0-28.5-11.5T40-480q0-17 11.5-28.5T80-520h80q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440H80Zm720 0q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520h80q17 0 28.5 11.5T920-480q0 17-11.5 28.5T880-440h-80ZM480-760q-17 0-28.5-11.5T440-800v-80q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v80q0 17-11.5 28.5T480-760Zm0 720q-17 0-28.5-11.5T440-80v-80q0-17 11.5-28.5T480-200q17 0 28.5 11.5T520-160v80q0 17-11.5 28.5T480-40ZM226-678l-43-42q-12-11-11.5-28t11.5-29q12-12 29-12t28 12l42 43q11 12 11 28t-11 28q-11 12-27.5 11.5T226-678Zm494 495-42-43q-11-12-11-28.5t11-27.5q11-12 27.5-11.5T734-282l43 42q12 11 11.5 28T777-183q-12 12-29 12t-28-12Zm-42-495q-12-11-11.5-27.5T678-734l42-43q11-12 28-11.5t29 11.5q12 12 12 29t-12 28l-43 42q-12 11-28 11t-28-11ZM183-183q-12-12-12-29t12-28l43-42q12-11 28.5-11t27.5 11q12 11 11.5 27.5T282-226l-42 43q-11 12-28 11.5T183-183Zm297-297Z"/></svg>
+          <!-- Intro stuff -->
+          <div class="intro-text">Welcome to my portfolio!</div>
+          <div class="arrow-svg-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+              <path fill="currentColor"
+                d="M480-362q-8 0-15-2.5t-13-8.5L267-558q-11-11-10.5-27.5T268-613q11-11 28-11t28 11l156 156 157-157q11-11 27.5-10.5T692-613q11 11 11 28t-11 28L508-373q-6 6-13 8.5t-15 2.5Z" />
+            </svg>
+          </div>
+
+          <div class="hero-main">
+            <h1 class="hero-main-title">Jarry's Room</h1>
+            <p class="hero-main-decription">Hello!</p>
+          </div>
+
+          <div class="hero-second">
+            <p class="hero-second-subheading first-sub">Jarry Wu</p>
+            <p class="hero-second-subheading second-sub">Portfolio</p>
+          </div>
+
         </div>
-        <button class="toggle-button">
-          <div class="toggle-circle"></div>
-        </button>
-        <div class="moon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path fill = "currentColor" d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+      </section>
+
+      <!-- dummy section to provide margins when moving scene -->
+      <div class=" first-move section-margin"></div>
+
+      <section class="first-section section left">
+        <div class="progress-wrapper progress-bar-wrapper-left">
+          <!-- don't need a color class here because blue is the default color -->
+          <div class="progress-bar"></div>
         </div>
-      </div>
 
-      <div class="page-wrapper" lenis-smooth>
+        <div class="section-intro-wrapper">
+          <h1 class="section-title">
+            <span class="section-title-text">About Me</span>
+            <div class="section-title-decortation styleOne"></div>
+            <div class="section-title-decortation styleTwo"></div>
+            <div class="section-title-decortation styleThree"></div>
+          </h1>
+          <span class="section-number">01</span>
+        </div>
 
-        <section class="hero">
-          <div class="hero-wrapper">
+        <div class="section-detail-wrapper">
+          <h3 class="section-heading">Hi! 👋 I'm Jarry (Jar-e) </h3>
+          <p class="section-text">This is a little side project I made as a way of improving my tech skills and create a
+            tangible place for my work to live.
+            It's been really fun and I'm looking forward to putting a lot more stuff on here as I continue to learn new
+            things!
+            <br><br>
+            I'm currently studying business at Western University's Ivey School of Business (Mustangs!!), and design has
+            always been a
+            secret passion of mine (It's fun to see people's faces light up when they see something cool). I've been
+            really interested
+            in the intersection between business and tech and love to make things that people will remember.
+          </p>
+          <h3 class="section-heading">🎉 Some less boring stuff 🎉</h3>
+          <p class="section-text">Amongst my friends, I've built up a bit of a reputation as a couch surfer, but that's
+            just because I love being around people
+            and I end up staying just a little too late (I'm very thankful they aren't tired of me yet).
+            <br><br>
+            When I'm not on a couch, you can sometimes find me brushing up on my mixology with a few cocktails or
+            entertaining friends with
+            some magic tricks (I've found they work best after the cocktails). As a Canadian, I've picked up the
+            obligatory snowboarding and
+            skiing, but since there are barely any slopes in London, I've also caught the climbing bug (bouldering!!!).
+            Aside from that, I like
+            to dabble in a few video games, namely Valorant.
+            <br><br>
+            If you're still interested in learning more about me, keep scrolling! (If not I still recommend scrolling to
+            the bottom to appreciate
+            the cool mini platform animation I put at the end).
+          </p>
+        </div>
+      </section>
 
-            <!-- Intro stuff -->
-            <div class="intro-text">Welcome to my portfolio!</div>
-            <div class="arrow-svg-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path fill="currentColor" d="M480-362q-8 0-15-2.5t-13-8.5L267-558q-11-11-10.5-27.5T268-613q11-11 28-11t28 11l156 156 157-157q11-11 27.5-10.5T692-613q11 11 11 28t-11 28L508-373q-6 6-13 8.5t-15 2.5Z"/></svg>
-            </div>
+      <div class="second-move section-margin"></div>
 
-            <div class="hero-main">
-              <h1 class="hero-main-title">Jarry's Room</h1>
-              <p class="hero-main-decription">Hello!</p>
-            </div>
+      <section class="second-section section right">
+        <div class="progress-wrapper progress-bar-wrapper-right">
+          <div class="progress-bar pink-background"></div>
+        </div>
 
-            <div class="hero-second">
-              <p class="hero-second-subheading first-sub">Jarry Wu</p>
-              <p class="hero-second-subheading second-sub">Portfolio</p>
-            </div>
+        <div class="progress-bar-wrapper-right">
+          <div class="right-progress-bar pink-background"></div>
+        </div>
 
-          </div>
-        </section>
-
-        <!-- dummy section to provide margins when moving scene -->
-        <div class=" first-move section-margin"></div>
-
-        <section class="first-section section left">
-          <div class="progress-wrapper progress-bar-wrapper-left">
-            <!-- don't need a color class here because blue is the default color -->
-            <div class="progress-bar"></div>
-          </div>
-
-            <div class="section-intro-wrapper">
-              <h1 class="section-title">
-                <span class="section-title-text">About Me</span>
-                <div class="section-title-decortation styleOne"></div>
-                <div class="section-title-decortation styleTwo"></div>
-                <div class="section-title-decortation styleThree"></div>
-              </h1>
-              <span class="section-number">01</span>
-            </div>
-
-          <div class="section-detail-wrapper">
-            <h3 class="section-heading">Hi! 👋 I'm Jarry (Jar-e) </h3>
-            <p class="section-text">This is a little side project I made as a way of improving my tech skills and create a tangible place for my work to live.
-                                    It's been really fun and I'm looking forward to putting a lot more stuff on here as I continue to learn new things!
-                                    <br><br>
-                                    I'm currently studying business at Western University's Ivey School of Business (Mustangs!!), and design has always been a 
-                                    secret passion of mine (It's fun to see people's faces light up when they see something cool). I've been really interested 
-                                    in the intersection between business and tech and love to make things that people will remember.
-            </p>
-            <h3 class="section-heading">🎉 Some less boring stuff 🎉</h3>
-            <p class="section-text">Amongst my friends, I've built up a bit of a reputation as a couch surfer, but that's just because I love being around people
-                                    and I end up staying just a little too late (I'm very thankful they aren't tired of me yet). 
-                                    <br><br>
-                                    When I'm not on a couch, you can sometimes find me brushing up on my mixology with a few cocktails or entertaining friends with 
-                                    some magic tricks (I've found they work best after the cocktails). As a Canadian, I've picked up the obligatory snowboarding and 
-                                    skiing, but since there are barely any slopes in London, I've also caught the climbing bug (bouldering!!!). Aside from that, I like 
-                                    to dabble in a few video games, namely Valorant. 
-                                    <br><br>
-                                    If you're still interested in learning more about me, keep scrolling! (If not I still recommend scrolling to the bottom to appreciate 
-                                    the cool mini platform animation I put at the end).
-            </p>
-          </div>
-        </section>
-
-        <div class="second-move section-margin"></div>
-
-        <section class="second-section section right">
-          <div class="progress-wrapper progress-bar-wrapper-right">
-            <div class="progress-bar pink-background"></div>
-          </div>
-
-          <div class="progress-bar-wrapper-right">
-            <div class="right-progress-bar pink-background"></div>
-          </div>
-
-          <div class="section-intro-wrapper pink-text pink-border">
-            <h1 class="section-title pink-text">
-              <span class="section-title-text pink-text">My Work</span>
-              <div class="section-title-decortation styleOne pink-border"></div>
-              <div class="section-title-decortation styleTwo pink-border"></div>
-              <div class="section-title-decortation styleThree pink-background pink-border"></div>
-            </h1>
-            <span class="section-number pink-text">02</span>
-          </div>
+        <div class="section-intro-wrapper pink-text pink-border">
+          <h1 class="section-title pink-text">
+            <span class="section-title-text pink-text">My Work</span>
+            <div class="section-title-decortation styleOne pink-border"></div>
+            <div class="section-title-decortation styleTwo pink-border"></div>
+            <div class="section-title-decortation styleThree pink-background pink-border"></div>
+          </h1>
+          <span class="section-number pink-text">02</span>
+        </div>
 
         <div class="section-detail-wrapper">
           <h3 class="section-heading">Portfolio website</h3>
-          <p class="section-text">I made the room and fish animation on Blender, and all the website controls, scrolling animations, and lighting were done through
-                                  gsap and three.js. Also that smooth scrolling effect you're feeling is thanks to a tool called Lenis Scroll. It was definitely a
-                                  learning experience setting that up but it is very rewarding to have implemented so I hope you like it!
+          <p class="section-text">I made the room and fish animation on Blender, and all the website controls, scrolling
+            animations, and lighting were done through
+            gsap and three.js. Also that smooth scrolling effect you're feeling is thanks to a tool called Lenis Scroll.
+            It was definitely a
+            learning experience setting that up but it is very rewarding to have implemented so I hope you like it!
           </p>
           <h3 class="section-heading">Generative AI NPC</h3>
-          <p class="section-text">This is going to be my next project. I think it would be really cool to make an NPC (non-playable character) with some minor Blender
-                                  animations and make it possible to speak in a really human way (like ChatGPT) through generative AI. I'll put it here when I'm done 
-                                  so instead of giant blocks of text, you can learn about my work by actually playing around with it.
+          <p class="section-text">This is going to be my next project. I think it would be really cool to make an NPC
+            (non-playable character) with some minor Blender
+            animations and make it possible to speak in a really human way (like ChatGPT) through generative AI. I'll
+            put it here when I'm done
+            so instead of giant blocks of text, you can learn about my work by actually playing around with it.
           </p>
+
+          <div className="relative top-0 z-50">
+            <form className="absolute top-[730px] left-[30px] space-x-2 pt-2">
+              <input 
+              className="bg-transparent w-[510px] border border-[#b00c3f]/80 outline-none rounded-lg
+              placeholder:text-[#b00c3f] p-2 text-[#b00c3f]"
+              type="text"
+              placeholder="Ask and ye shall receive..."
+              />
+              <button
+                className="text-[#b00c3f] p-2 border border-[#b00c3f] rounded-lg disabled:text-blue-100 disabled:cursor-not-allowed disabled:bg-gray-500 hover:scale-110 hover:text-black hover:bg-[#b00c3f] duration-300 transition-all">
+                "Ask"
+              </button>
+            </form>
+          </div>
+
           <h3 class="section-heading">Anything else?</h3>
-          <p class="section-text">If you have any examples of cool projects or ideas you think I should look into, let me know! I love learning new things and building out
-                                  cool projects to show others. I have just started learning though so it will take some time, but I'll be working hard to go from amateur
-                                  to expert.
+          <p class="section-text">If you have any examples of cool projects or ideas you think I should look into, let
+            me know! I love learning new things and building out
+            cool projects to show others. I have just started learning though so it will take some time, but I'll be
+            working hard to go from amateur
+            to expert.
           </p>
         </div>
       </section>
 
       <div class=" third-move section-margin"></div>
 
-        <section class="third-section section left">
-          <div class="progress-wrapper progress-bar-wrapper-left">
-            <div class="progress-bar darkblue-background"></div>
-          </div>
+      <section class="third-section section left">
+        <div class="progress-wrapper progress-bar-wrapper-left">
+          <div class="progress-bar darkblue-background"></div>
+        </div>
 
-          <div class="progress-bar-wrapper-left">
-            <div class="left-progress-bar darkblue-background"></div>
-          </div>
+        <div class="progress-bar-wrapper-left">
+          <div class="left-progress-bar darkblue-background"></div>
+        </div>
 
-            <div class="section-intro-wrapper darkblue-text darkblue-border">
-              <h1 class="section-title darkblue-text darkblue-border">
-                <span class="section-title-text darkblue-text">Contact Me</span>
-                <div class="section-title-decortation styleOne darkblue-border"></div>
-                <div class="section-title-decortation styleTwo darkblue-border"></div>
-                <div class="section-title-decortation styleThree darkblue-background darkblue-border"></div>
-              </h1>
-              <span class="section-number darkblue-text">03</span>
-            </div>
+        <div class="section-intro-wrapper darkblue-text darkblue-border">
+          <h1 class="section-title darkblue-text darkblue-border">
+            <span class="section-title-text darkblue-text">Contact Me</span>
+            <div class="section-title-decortation styleOne darkblue-border"></div>
+            <div class="section-title-decortation styleTwo darkblue-border"></div>
+            <div class="section-title-decortation styleThree darkblue-background darkblue-border"></div>
+          </h1>
+          <span class="section-number darkblue-text">03</span>
+        </div>
 
-          <div class="section-detail-wrapper">
-            <h3 class="section-heading"><a href="https://www.instagram.com/jarry.wu_/" target="_blank">Instagram: jarrywu_</a></h3>
-            <p class="section-text">I don't post much but when I do, I like to post highlights with friends.
-                                    I've also allocated all of my meme discovery to Instagram since I've successfully
-                                    avoided the TikTok and Reddit rabbit holes (I've gotta find my memes somehow).
-                                    Check it out, drop a follow! Who knows, maybe I'll finally have a new post up.
-            </p>
-            <h3 class="section-heading"><a href="https://www.linkedin.com/in/jarry-wu-a91049177/" target="_blank">LinkedIn: Jarry Wu</a></h3>
-            <p class="section-text">Obligatory Linkedin plug because I am a business student. If you want to set up
-                                    a coffee chat or reach out to me this is the best place to do it (unless I know you personally,
-                                    then just call or something). I don't have premium so you won't have to worry about me knowing 
-                                    you're looking me up.
-            </p>
-            <h3 class="section-heading"><a href="mailto:jarrywucanada@gmail.com">Email</a></h3>
-            <p class="section-text">If you're not getting through on LinkedIn then you can always send me an email.
-                                    For whatever reason, I check my gmail more often than I do any of my other emails so this
-                                    is your best bet if I've ghosted you on LinkedIn. (PSA to all scammers: please don't, 
-                                    I like this email).
-            </p>
-          </div>
-        </section>
+        <div class="section-detail-wrapper">
+          <h3 class="section-heading"><a href="https://www.instagram.com/jarry.wu_/" target="_blank">Instagram:
+              jarrywu_</a></h3>
+          <p class="section-text">I don't post much but when I do, I like to post highlights with friends.
+            I've also allocated all of my meme discovery to Instagram since I've successfully
+            avoided the TikTok and Reddit rabbit holes (I've gotta find my memes somehow).
+            Check it out, drop a follow! Who knows, maybe I'll finally have a new post up.
+          </p>
+          <h3 class="section-heading"><a href="https://www.linkedin.com/in/jarry-wu-a91049177/"
+              target="_blank">LinkedIn: Jarry Wu</a></h3>
+          <p class="section-text">Obligatory Linkedin plug because I am a business student. If you want to set up
+            a coffee chat or reach out to me this is the best place to do it (unless I know you personally,
+            then just call or something). I don't have premium so you won't have to worry about me knowing
+            you're looking me up.
+          </p>
+          <h3 class="section-heading"><a href="mailto:jarrywucanada@gmail.com">Email</a></h3>
+          <p class="section-text">If you're not getting through on LinkedIn then you can always send me an email.
+            For whatever reason, I check my gmail more often than I do any of my other emails so this
+            is your best bet if I've ghosted you on LinkedIn. (PSA to all scammers: please don't,
+            I like this email).
+          </p>
+        </div>
+      </section>
 
-      </div>
     </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
