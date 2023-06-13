@@ -208,6 +208,59 @@ html.lenis {
    pointer-events: none;
 } 
 
+/* Ai bot css */
+
+.askBartenderInput{
+  background-color: transparent;
+  width: 85%;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  outline: none;
+  border-radius: 0.5rem;
+  color: #000000;
+  padding: 0.5rem;
+}
+
+.askBartenderButton {
+  color: #000000;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition-duration: 300ms;
+  transition-property: all;
+}
+
+.askBartenderButton.disabled {
+  color: rgb(255, 255, 255);
+  cursor: not-allowed;
+  background-color: #888;
+}
+
+.askBartenderButton:hover {
+  transform: scale(1.1);
+  color: rgba(255, 255, 255);
+  background-color: var(--color-pink);
+}
+
+.askBartenderResponse {
+  display: inline-block;
+  width: 85%;
+  border-radius: 5px;
+  padding-top: 1px;
+  padding: 5px;
+  color: black;
+  background-color: #f4e7c8;
+  animation-name: appear 2s forwards;
+  overflow: hidden;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Toggle Bar -------------------------------- */
 .toggle-bar{
   /* fix position so it stays on screen at all times */

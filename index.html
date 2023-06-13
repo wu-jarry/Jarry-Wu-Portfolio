@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
@@ -159,27 +160,17 @@
             It was definitely a
             learning experience setting that up but it is very rewarding to have implemented so I hope you like it!
           </p>
-          <h3 class="section-heading">Generative AI NPC</h3>
-          <p class="section-text">This is going to be my next project. I think it would be really cool to make an NPC
-            (non-playable character) with some minor Blender
-            animations and make it possible to speak in a really human way (like ChatGPT) through generative AI. I'll
-            put it here when I'm done
-            so instead of giant blocks of text, you can learn about my work by actually playing around with it.
+          <h3 class="section-heading">Generative AI Bartender</h3>
+          <p class="section-text">This is going to be my next project.
           </p>
 
           <div className="relative top-0 z-50">
-            <form className="absolute top-[730px] left-[30px] space-x-2 pt-2">
-              <input 
-              className="bg-transparent w-[510px] border border-[#b00c3f]/80 outline-none rounded-lg
-              placeholder:text-[#b00c3f] p-2 text-[#b00c3f]"
-              type="text"
-              placeholder="Ask and ye shall receive..."
-              />
-              <button
-                className="text-[#b00c3f] p-2 border border-[#b00c3f] rounded-lg disabled:text-blue-100 disabled:cursor-not-allowed disabled:bg-gray-500 hover:scale-110 hover:text-black hover:bg-[#b00c3f] duration-300 transition-all">
-                "Ask"
+            <div id="askBartenderForm">
+              <input class="askBartenderInput" type="text" placeholder="What can I get you?" id="askBartenderInput" />
+              <button id="askBartenderButton" class="askBartenderButton">
+                Ask
               </button>
-            </form>
+              <div id="askBartenderResponse" class="askBartenderResponse"></div>
           </div>
 
           <h3 class="section-heading">Anything else?</h3>
@@ -240,6 +231,97 @@
     </div>
   </div>
   <script type="module" src="/main.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const inputField = document.getElementById("askBartenderInput");
+      const askBartenderButton = document.getElementById("askBartenderButton");
+
+      inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          askBartenderButton.click();
+        }
+      });
+
+      // const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
+      // const voices = synth?.getVoices();
+      // console.log(voices)
+
+      // const selectedVoices = voices?.find(voice => voice.name === "Eddy (English (U.K.))");
+
+      // const speak = (textToSpeak) => {
+      //   const promise = new Promise((resolve, reject) => {
+      //     const utterance = new SpeechSynthesisUtterance(textToSpeak)
+      //     utterance.voice = selectedVoices;
+      //     utterance.rate = 0.9;
+      //     synth?.speak(utterance);
+      //     utterance.onend = (() => {
+      //       resolve("success");
+      //     });
+      //   });
+      //   return promise;
+      // }
+
+      const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
+      let selectedVoices = null;
+
+      const speak = (textToSpeak) => {
+        const promise = new Promise((resolve, reject) => {
+          const utterance = new SpeechSynthesisUtterance(textToSpeak);
+          utterance.voice = selectedVoices;
+          utterance.rate = 1;
+          synth.speak(utterance);
+          utterance.onend = (() => {
+            resolve("success");
+          });
+        });
+        return promise;
+      };
+
+      function initializeVoices() {
+        const voices = synth.getVoices();
+
+        selectedVoices = voices.find(voice => voice.name === "Google UK English Male");
+
+        if (!selectedVoices) {
+          console.log("Selected voice is not available");
+        }
+      }
+
+      if (synth && synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = initializeVoices;
+      } else {
+        initializeVoices();
+      }
+
+      // Bartender button on click event 
+      window.document.getElementById('askBartenderButton').addEventListener('click', async () => {
+        // Get the input value
+        const form = window.document.getElementById("askBartenderForm");
+        const input = window.document.getElementById("askBartenderInput").value;
+        // If the input is empty, do nothing
+        if (input === '') return;
+        // If the input is not empty, send the input to the server
+        try {
+
+          const response = await fetch("http://104.197.149.157/api/bartender", {
+            method: "POST",
+            body: JSON.stringify({
+              "userInput": input
+            }),
+            headers: { "Content-Type": "application/json" }
+          });
+          const responseText = (await (response.json())).response;
+          window.document.getElementById('askBartenderResponse').innerHTML = responseText;
+          inputField.value = ''; // Reset the input value
+          await speak(responseText);
+        } catch (error) {
+          console.log(error);
+        }
+        return false;
+      });
+    });
+  </script>
 </body>
 
 </html>
