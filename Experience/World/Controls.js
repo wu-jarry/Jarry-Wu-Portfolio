@@ -3,7 +3,7 @@ import GSAP from "gsap";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
-export default class Room{
+export default class Controls{
     constructor(){
         this.experience = new Experience();
         this.scene = this.experience.scene;
