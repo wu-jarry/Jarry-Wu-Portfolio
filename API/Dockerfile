@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim-buster
+FROM python:3.9
 
 # Set the working directory in the container to /app
 WORKDIR /app
@@ -12,10 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Add the current directory contents into the container at /app
 ADD . /app
+ENV PYTHONBUFFERED Tue
 
-
-# Make port 8080 available to the world outside this container
-EXPOSE 8080
 
 # Run app.py when the container launches
-CMD exec gunicorn --bind :8080 --workers 1 --threads 8 app:app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app:app

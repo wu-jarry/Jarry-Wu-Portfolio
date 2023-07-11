@@ -3,7 +3,7 @@ import openai
 from dotenv import load_dotenv
 from colorama import Fore, Back, Style
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 # load values from the .env file if it exists
 load_dotenv()
@@ -99,6 +99,7 @@ def get_moderation(question):
     return None
 
 @app.route('/api/bartender', methods=['POST'])
+@cross_origin()
 def bartender_api():
 
     data = request.get_json()
@@ -112,37 +113,3 @@ def bartender_api():
         response = get_response(INSTRUCTIONS, previous_questions_and_answers, user_input)
     return jsonify({'response': response})
 
-
-def main():
-    os.system("cls" if os.name == "nt" else "clear")
-    # keep track of previous questions and answers
-    # Need to not run on port 5000 bc mac uses it for fucking airdrop.
-    app.run(port=5050, debug=True)
-    while True:
-        # ask the user for their question
-        new_question = input(
-            Fore.GREEN + Style.BRIGHT + "What can I get you?: " + Style.RESET_ALL
-        )
-        # check the question is safe
-        errors = get_moderation(new_question)
-        if errors:
-            print(
-                Fore.RED
-                + Style.BRIGHT
-                + "Sorry, you're question didn't pass the moderation check:"
-            )
-            for error in errors:
-                print(error)
-            print(Style.RESET_ALL)
-            continue
-        response = get_response(INSTRUCTIONS, previous_questions_and_answers, new_question)
-
-        # add the new question and answer to the list of previous questions and answers
-        previous_questions_and_answers.append((new_question, response))
-
-        # print the response
-        print(Fore.CYAN + Style.BRIGHT + "Here you go: " + Style.NORMAL + response)
-
-
-if __name__ == "__main__":
-    main()
